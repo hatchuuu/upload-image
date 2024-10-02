@@ -34,7 +34,7 @@ export const EditButton = ({ id }: { id: string }) => {
 export const DeleteButton = ({ id }: { id: string }) => {
     const deleteImageWithId = deleteImage.bind(null, id)
     return (
-        <form action={deleteImageWithId}>
+        <form onSubmit={deleteImageWithId}>
             <DeleteBtn />
         </form>
     )
