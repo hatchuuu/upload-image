@@ -1,5 +1,5 @@
 "use server"
-import { string, z } from 'zod'
+import { z } from 'zod'
 import { put, del } from "@vercel/blob";
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
@@ -52,7 +52,7 @@ export const uploadImage = async (prevState: unknown, formData: FormData) => {
             }
         })
     } catch (error) {
-        return { message: "Failed to upload image" }
+        return { message: `${error} Failed to upload image` }
     }
     revalidatePath("/")
     redirect("/")
@@ -109,7 +109,7 @@ export const updateImage = async (id: string, prevState: unknown, formData: Form
             }
         })
     } catch (error) {
-        return { message: "Failed to update image" }
+        return { message: `${error} Failed to update image` }
     }
     revalidatePath("/")
     redirect("/")

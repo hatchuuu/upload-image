@@ -7,7 +7,7 @@ export const getImage = async () => {
         })
         return response
     } catch (error) {
-        throw new Error("Failed to fetch data")
+        throw new Error(`${error} Failed to fetch data`)
     }
 }
 
@@ -18,7 +18,7 @@ export const getImageById = async (id: string) => {
         })
         return response
     } catch (error) {
-        throw new Error("Failed to fetch data")
+        throw new Error(`${error} Failed to fetch data`)
     }
 }
 
@@ -28,6 +28,6 @@ export const getDeleteImage = async (id: string) => {
             where: { id }
         })
     } catch (error) {
-        return { message:"Failed to delete data" }
+        return { message:`${error}Failed to delete data` }
     }
 }
