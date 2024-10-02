@@ -12,6 +12,15 @@
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "react/no-unescaped-entities": "off",
-    "@next/next/no-page-custom-font": "off"
-  }
+    "@next/next/no-page-custom-font": "off",
+    "no-var": "error"
+  },
+  "overrides": [
+    {
+      "files": ["./lib/prisma.ts"],
+      "rules": {
+        "no-var": "off"
+      }
+    }
+  ]
 }
