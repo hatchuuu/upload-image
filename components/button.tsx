@@ -31,14 +31,27 @@ export const EditButton = ({ id }: { id: string }) => {
     )
 }
 
+
+// export const DeleteButton = ({ id }: { id: string }) => {
+//     const deleteImageWithId = deleteImage.bind(null, id)
+//     return (
+//         <form action={deleteImageWithId}>
+//             <DeleteBtn />
+//         </form>
+//     )
+// }
 export const DeleteButton = ({ id }: { id: string }) => {
-    const deleteImageWithId = deleteImage.bind(null, id)
+    const deleteImageWithId = async (e: React.FormEvent) => {
+        e.preventDefault(); // Mencegah perilaku default submit form
+         await deleteImage(id); // Memanggil fungsi delete dengan ID
+    };
+
     return (
         <form onSubmit={deleteImageWithId}>
             <DeleteBtn />
         </form>
-    )
-}
+    );
+};
 
 const DeleteBtn = () => {
     const { pending } = useFormStatus()
